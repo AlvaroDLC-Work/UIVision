@@ -1,0 +1,24 @@
+{
+  "Name": "Seleccionar nivel experiencia",
+  "CreationDate": "2026-5-23",
+  "Commands": [
+    {
+      "Command": "click",
+      "Target": "xpath=//div[@id='select-nivel']//input[@aria-label='Elige una opción']",
+      "Value": "",
+      "Description": "Abrir selector Nivel de experiencia"
+    },
+    {
+      "Command": "sendKeys",
+      "Target": "xpath=//div[@id='select-nivel']//input[@aria-label='Elige una opción']",
+      "Value": "Junior${KEY_ENTER}",
+      "Description": "Seleccionar nivel"
+    },
+    {
+      "Command": "assertValue",
+      "Target": "xpath=//div[@id='select-nivel']//input[@name='nivel']",
+      "Value": "Junior",
+      "Description": "Verificar nivel seleccionado"
+    }
+  ]
+}
