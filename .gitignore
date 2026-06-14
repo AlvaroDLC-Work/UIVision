@@ -1,9 +1,9 @@
 *.zip
 node_modules/
 .auth/
-*.csv
 logs/
 *.log
 *.env
 .DS_Store
 web/
+out/
