@@ -1,0 +1,78 @@
+{
+  "Name": "1_EpisodeList",
+  "CreationDate": "2026-6-14",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "SeasonID",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${SeasonID}",
+      "Value": "!csvReadLineNumber",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "FRIENDS",
+      "Value": "serie",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "csvRead // 0_${serie}-SeasonList.csv",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "open // ${!COL1}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "open // https://frindslatino.blogspot.com/2022/11/friends-primera-temporada.html",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "executeScript",
+      "Target": "return document.querySelector('[id^=\\\"post-body-\\\"]').id;",
+      "Value": "bodyID",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=(//*[@id='${bodyID}']//a[contains(@href,'friends-1x')])[${!LOOP}]",
+      "Value": "EpisodeTitle",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${EpisodeTitle}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=(//*[@id='post-body-5345214903664687665']//a[contains(@href,'friends-1x')])[${!LOOP}]@href",
+      "Value": "EpisodeLink",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${EpisodeLink}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "1_${serie}-S${SeasonID}-episode-links.csv",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

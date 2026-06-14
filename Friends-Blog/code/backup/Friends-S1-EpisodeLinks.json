@@ -1,0 +1,48 @@
+{
+  "Name": "Friends-S1-EpisodeLinks",
+  "CreationDate": "2026-6-14",
+  "Commands": [
+    {
+      "Command": "comment",
+      "Target": "Ejecutar con Play Loop: Start=1, Max=24. Habilitar acceso de UI.Vision a URLs file://.",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "file:///C:/Users/Gamer/Projects/Developer/UIVision/TAAHM-Blog/source/Friends%20latino_%20Friends%20PRIMERA%20TEMPORADA.html",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "xpath=(//*[@id='post-body-5345214903664687665']//a[contains(@href,'friends-1x')])[${!LOOP}]",
+      "Value": "EpisodeTitle",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${EpisodeTitle}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=(//*[@id='post-body-5345214903664687665']//a[contains(@href,'friends-1x')])[${!LOOP}]@href",
+      "Value": "EpisodeLink",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${EpisodeLink}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "friends-s1-episode-links.csv",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

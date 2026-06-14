@@ -1,0 +1,36 @@
+{
+  "Name": "TAAHM-EB",
+  "CreationDate": "2026-6-13",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "1211261305048507080",
+      "Value": "bodyID",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=(//*[@id='post-body-${bodyID}']//a)[${!LOOP}]@href",
+      "Value": "linkWeb",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${linkWeb}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "links-web-s4_1-24.csv",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

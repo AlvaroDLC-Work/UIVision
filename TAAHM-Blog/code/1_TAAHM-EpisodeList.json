@@ -1,0 +1,60 @@
+{
+  "Name": "1_TAAHM-EpisodeList",
+  "CreationDate": "2026-6-14",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "!csvReadLineNumber",
+      "Description": ""
+    },
+    {
+      "Command": "csvRead",
+      "Target": "0_TAAHM-SeasonList.csv",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "${!COL1}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "executeScript // return document.querySelector('[id^=\\\"post-body-\\\"]').id;",
+      "Value": "bodyID",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "storeText // xpath=(//*[@id='${bodyID}']//a)[${!LOOP}]",
+      "Value": "linkTitle",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "store // ${linkTitle}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "storeAttribute // xpath=(//*[@id='${bodyID}']//a)[${!LOOP}]@href",
+      "Value": "linkWeb",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "store // ${linkWeb}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "csvSave // 1_TAAHM-EpisodeListSeason-${!csvReadLineNumber}.csv",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "Name": "TAAHM-E",
+  "CreationDate": "2026-6-13",
+  "Commands": [
+    {
+      "Command": "csvRead",
+      "Target": "links-web-s3_1-24.csv",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "${!COL2}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "/html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div/div[4]/div[1]/div/div/div/div[1]/div/div/div/div[1]/h3",
+      "Value": "EpisodeTitle",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${EpisodeTitle}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=(//iframe)[1]@src",
+      "Value": "LinkVideo",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${LinkVideo}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "Video-Links-S3",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

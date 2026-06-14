@@ -1,0 +1,48 @@
+{
+  "Name": "TAHM-S1",
+  "CreationDate": "2026-6-13",
+  "Commands": [
+    {
+      "Command": "comment",
+      "Target": "open // https://twoandahalfmenlatino.blogspot.com/2019/09/dos-hombres-y-medio-primera-temporada.html",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "click",
+      "Target": "/html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div/div[4]/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[2]/div[1]/div[${!LOOP}]/span[2]",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "/html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div/div[4]/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[2]/div[1]/div[${!LOOP}]/span[1]/a",
+      "Value": "Titulo",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${Titulo}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "/html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div/div[4]/div[1]/div/div/div/div[1]/div/div/div/div[1]/div[2]/div[1]/div[${!LOOP}]/span[1]/a@href",
+      "Value": "Link",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${Link}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "Links-Web",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "Name": "2_VideoLinkList",
+  "CreationDate": "2026-6-14",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "1",
+      "Value": "SeasonID",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "FRIENDS",
+      "Value": "serie",
+      "Description": ""
+    },
+    {
+      "Command": "csvRead",
+      "Target": "1_${serie}-s${SeasonID}-episode-links.csv",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "${!COL2}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "/html/body/div[3]/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div/div[4]/div[1]/div/div/div/div[1]/div/div/div/div[1]/h3",
+      "Value": "EpisodeTitle",
+      "Description": "Note: ChangeDependOnSite"
+    },
+    {
+      "Command": "store",
+      "Target": "${EpisodeTitle}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=(//iframe)[1]@src",
+      "Value": "LinkVideo",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${LinkVideo}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "2_${serie}-S${SeasonID}-VideoLinks.csv",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}

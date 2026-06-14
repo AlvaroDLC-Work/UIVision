@@ -1,0 +1,60 @@
+{
+  "Name": "2_TAAHM-VideoLinkList",
+  "CreationDate": "2026-6-14",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "5",
+      "Value": "SeasonID",
+      "Description": ""
+    },
+    {
+      "Command": "csvRead",
+      "Target": "TAAHM-EpisodeListSeason-${SeasonID}.csv",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "open",
+      "Target": "${!COL2}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "storeText",
+      "Target": "/html/body/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div/div[4]/div[1]/div/div/div/div[1]/div/div/div/div[1]/h3",
+      "Value": "EpisodeTitle",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${EpisodeTitle}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "storeAttribute",
+      "Target": "xpath=(//iframe)[1]@src",
+      "Value": "LinkVideo",
+      "Description": ""
+    },
+    {
+      "Command": "store",
+      "Target": "${LinkVideo}",
+      "Value": " !csvLine",
+      "Description": ""
+    },
+    {
+      "Command": "csvSave",
+      "Target": "TAAHM-VideoLinksSeason${SeasonID}",
+      "Value": "",
+      "Description": ""
+    },
+    {
+      "Command": "",
+      "Target": "",
+      "Value": "",
+      "Description": ""
+    }
+  ]
+}
